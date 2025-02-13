@@ -31,7 +31,7 @@
                         </div>
                     </li>
                     <li class="breadcrumb-item col">
-                        <div class="step-container align-items-center">
+                        <div class="step-container align-items-center ">
                             <div class="step-circle">
                                 <div class="step-circle-background">
                                     <p>2</p>
@@ -69,27 +69,37 @@
                                 <p>https://</p>
                             </div>
                             <div class="domain-input">
-                                <input type="text" placeholder="Valige domeeni nime">
+                                <input class="domain-input-input" onkeypress="submitDomainName(event)" type="text" placeholder="Valige domeeni nime">
                             </div>
                         </div>
                         <div class="search-right">
                             <div class="domain-zone">
                                 <div class="dropdown">
-                                    <button class="dropdown-button dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                      .ee
+                                    <button class="dropdown-button dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        .ee
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.lt')">.lt</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.lv')">.lv</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.eu')">.eu</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.com')">.com</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.org')">.org</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.net')">.net</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.co')">.co</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.us')">.us</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeDropdownText('.ca')">.ca</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.lt')">.lt</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.lv')">.lv</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.eu')">.eu</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.com')">.com</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.org')">.org</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.net')">.net</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.co')">.co</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.us')">.us</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="changeDropdownText('.ca')">.ca</a></li>
                                     </ul>
-                                  </div>
+                                </div>
                             </div>
                             <div class="domain-price">
                                 <p>8.37 $ + km</p>
@@ -98,17 +108,129 @@
                     </div>
                 </div>
             </div>
+            <div class="domain-list-container">
+                <h3>Teid võib huvitada:</h3>
+                <div class="domain-list-content">
+                    <div class="domain-list-element">
+                        <p class="domain-name">example.com</p>
+                        <div class="domain-status">
+                            <p class="domain-locked">Domeen on juba hõivatud</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-list-content">
+                    <div class="domain-list-element">
+                        <p class="domain-name">example.com</p>
+                        <div class="domain-status">
+                            <button class="domain-check">Kontrolli saadavust</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-list-content">
+                    <div class="domain-list-element">
+                        <p class="domain-name">example.com</p>
+                        <div class="domain-status">
+                            <div class="domain-able">
+                                <p class="domain-period">1 aasta</p>
+                                <p class="domain-price">11.11$ + km</p>
+                                <button class="domain-add"><span class="domain-add-plus">+</span>LISA</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script>
-        function changeDropdownText(domain) {
-          document.getElementById('dropdownMenuButton1').textContent = domain;
+        function submitDomainName(e) {
+            if ((e && e.keyCode == 13) || e == 0) {
+                let domainName = document.querySelector('.domain-input-input').value
+                let domainZone = document.querySelector('#dropdownMenuButton1').innerText
+                domainZone = domainZone.split('.')[1]
+                findDomains(domainName, domainZone)
+                domainName = ''
+            }
         }
-      </script>
+    
+        const findDomains = (domainName, domainZone) => {
+            // Clearing previous suggestions
+            const domainListContainer = document.querySelector('.domain-list-container');
+            domainListContainer.innerHTML = `
+                <h3>Teid võib huvitada:</h3>
+            `;
+    
+            // Array of domain suggestions (2 for each type)
+            const domainSuggestions = [
+                { name: `${domainName}1.${domainZone}`, type: 'domain-locked' },
+                { name: `${domainName}2.${domainZone}`, type: 'domain-locked' },
+                { name: `${domainName}3.${domainZone}`, type: 'domain-check' },
+                { name: `${domainName}4.${domainZone}`, type: 'domain-check' },
+                { name: `${domainName}5.${domainZone}`, type: 'domain-able' },
+                { name: `${domainName}6.${domainZone}`, type: 'domain-able' }
+            ];
+    
+            // Add the new domain list to the container
+            domainSuggestions.forEach(domain => {
+                const domainElement = document.createElement('div');
+                domainElement.classList.add('domain-list-content');
+    
+                const domainListItem = document.createElement('div');
+                domainListItem.classList.add('domain-list-element');
+                
+                const domainNameElement = document.createElement('p');
+                domainNameElement.classList.add('domain-name');
+                domainNameElement.textContent = domain.name;
+    
+                const domainStatus = document.createElement('div');
+                domainStatus.classList.add('domain-status');
+    
+                const statusElement = document.createElement('p');
+                statusElement.classList.add(domain.type);
+    
+                // Based on the domain type, we can modify the status message or button
+                if (domain.type === 'domain-locked') {
+                    statusElement.textContent = 'Domeen on juba hõivatud'; // Domain is taken
+                } else if (domain.type === 'domain-check') {
+                    const checkButton = document.createElement('button');
+                    checkButton.classList.add('domain-check');
+                    checkButton.textContent = 'Kontrolli saadavust'; // Check availability
+                    domainStatus.appendChild(checkButton);
+                } else if (domain.type === 'domain-able') {
+                    const domainPeriod = document.createElement('p');
+                    domainPeriod.classList.add('domain-period');
+                    domainPeriod.textContent = '1 aasta'; // Example: 1 year availability
+    
+                    const domainPrice = document.createElement('p');
+                    domainPrice.classList.add('domain-price');
+                    domainPrice.textContent = '11.11$ + km'; // Example price
+    
+                    const addButton = document.createElement('button');
+                    addButton.classList.add('domain-add');
+                    addButton.innerHTML = `<span class="domain-add-plus">+</span>LISA`; // Add button
+    
+                    domainStatus.appendChild(domainPeriod);
+                    domainStatus.appendChild(domainPrice);
+                    domainStatus.appendChild(addButton);
+                }
+    
+                domainListItem.appendChild(domainNameElement);
+                domainListItem.appendChild(domainStatus);
+                domainElement.appendChild(domainListItem);
+                domainListContainer.appendChild(domainElement);
+            });
+        }
+    
+        function changeDropdownText(domain) {
+            document.getElementById('dropdownMenuButton1').textContent = domain;
+        }
+    </script>
+    
+       
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
 
 </html>
-
