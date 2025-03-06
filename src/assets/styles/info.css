@@ -1,0 +1,46 @@
+
+.info-order {
+    width: 20%;
+}
+
+.info-main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-middle {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-info {
+    width: 100%;
+}
+
+.left-side {
+    width: 100%;
+    border: 1px solid #545454;
+    border-radius: 5px;
+}
+
+.card-info {
+    width: 100%;
+    background-color: #E9FADF;
+    border-radius: 5px;
+    border: 1px solid #ACD495;
+    padding: 20px 20px;
+    position: relative;
+    text-align: left;
+}
+
+form {
+    padding: 20px
+}
+
+.full-width {
+    text-align: left;
+    width: 100%;
+}

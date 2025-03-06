@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/info.css">
     <title>Document</title>
 </head>
 
@@ -59,18 +60,89 @@
                 </ol>
             </nav>
         </div>
-        <div class="main-content text-center">
-            <h4>Andmete sisestamine</h4>
-            <div class="data-container">
-                <div class="dropdown-center">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Eraisik
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Eraisik</a></li>
-                        <li><a class="dropdown-item" href="#">Ettevõtte</a></li>
-                    </ul>
+        <div class="main-content info-main text-center">
+            <h2 class="main-header">Andmete sisestamine</h2>
+            <div class="info-middle">
+                <div class="left-side">
+                    <form class="text-center">
+                        <div class="row justify-content-center mb-3">
+                            <div class="col">
+                                <button  class="btn btn-outline-secondary dropdown-toggle full-width" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Eraisik
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Eraisik</a></li>
+                                    <li><a class="dropdown-item" href="#">Ettevõtte</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-3">
+                            <div class="col">
+                                <button  class="btn btn-outline-secondary dropdown-toggle full-width" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Vali suhtlus keel
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Eesti</a></li>
+                                    <li><a class="dropdown-item" href="#">Inglise</a></li>
+                                    <li><a class="dropdown-item" href="#">Vene</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-5">
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Nimi</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Perekonnanimi</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-3">
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Kasutajanimi</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-3">
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Salasona</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Korda salasona</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="right-side info-order">
+                    <div class="domain-card-container order-info">
+                        <div class="card-info">
+                            <h2>Tellimus</h2>
+                            <div class="order-content">
+                                <p>Ostukorv on tyhi</p>
+                            </div>
+                            <div class="edasi-btn">
+                                <a type="button" class="btn btn-success btn-lg" href="info.html" disabled>Edasi</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
